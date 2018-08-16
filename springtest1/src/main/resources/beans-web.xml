@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 针对web的框架的整合信息 -->
+
+	<!--.配置视图解析器 访问的页面都在/page/xxx.jsp -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/pages/"></property><!-- 前缀 -->
+		<property name="suffix" value=".jsp"></property><!-- 后缀 -->
+	</bean>
+	
+	<!-- 启用springmvc的注解解析功能 -->
+	<mvc:annotation-driven/>
+	
+	
+	<!-- 解决静态资源访问问题          ant 风格的路径表示法  ? * **-->
+	<mvc:resources mapping="/images/**" location="/images/"/>
+	<mvc:resources mapping="/css/**" location="/css/"/>
+	<mvc:resources mapping="/js/**" location="/js/"/>
+	<mvc:resources mapping="/pdf/**" location="/pdf/"/>
+	<mvc:default-servlet-handler/>
+	
+	
+	
+	
+	
+	
+	
+</beans>
